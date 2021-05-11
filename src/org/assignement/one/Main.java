@@ -23,6 +23,7 @@ public class Main {
         }
         connect= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD );
         statement= connect.createStatement();
+        //Query 1: show the entire student_details table
         String query1 ="SELECT * FROM student_details";
         ResultSet result1=  statement.executeQuery(query1);
 
@@ -34,6 +35,16 @@ public class Main {
             System.out.print(result1.getString(5)+ " ");
 
         System.out.println();
+        }
+        //Query 2: find all students whose name start with A
+
+        String query2= "SELECT * FROM student_details WHERE Name like 'A%'";
+        ResultSet result2 = statement.executeQuery(query2);
+
+        while(result2.next()){
+            System.out.print(result2.getString(1)+ " ");
+            System.out.print(result2.getString(2)+ " ");
+            System.out.println();
         }
 
     }
