@@ -1,7 +1,7 @@
 package org.assignement.one;
 import java.sql.*;
 
-public class Main {
+public class DBClass {
 
     public static void main(String[] args) throws SQLException {
         System.out.println("*********Lets connect to database***********");
@@ -46,6 +46,7 @@ public class Main {
             System.out.print(result2.getString(2)+ " ");
             System.out.println();
         }
-
+        statement.close();
+        connect.close();
     }
 }
